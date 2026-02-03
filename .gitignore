@@ -1,0 +1,12 @@
+# Git
+.git/
+
+# IDEs
+.idea/
+
+# Venv
+.venv/
+
+# pycache
+__pycache__
+*.pyc

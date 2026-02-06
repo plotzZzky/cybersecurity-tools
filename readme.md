@@ -3,19 +3,23 @@
 ### Scripts usados em rotinas relacionadas a cybersegurança em geral
 
 #### CheckPwd
-  * Verifica se sua senha consta no rockyou.txt (lista de senhas vazadas)
+  * Verifica se sua senha consta no rockyou.txt (lista de senhas vazadas).
 
 #### CreateHoneyPots
-  * Esta ferramenta gera honeypots para proteger os arquivos reais de um servidor
+  * Esta ferramenta gera honeypots para proteger os arquivos reais de um servidor.
 
 #### IpInspector
-  * Script para buscar informações sobre um ip via terminal
+  * Script para buscar informações sobre um ip via terminal.
 
 #### LinuxInformation
-  * Scriptbash (lista de comandos) que retorna informações sobre um sistema linux
+  * Scriptbash (lista de comandos) que retorna informações sobre um sistema linux.
 
 #### PasswordTest
-  * Script para testar a segurança de senhas através de brute force attack
+  * Script para testar a segurança de senhas através de brute force attack.
+
+#### PyEncrypt
+  * Appcli para criptografar e descriptografar arquivos e pastas.
 
 #### PyHash
-  * Script para gerar hashs de forma simplificada
+  * Script para gerar hashs de forma simplificada.
+

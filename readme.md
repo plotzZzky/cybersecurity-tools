@@ -8,7 +8,7 @@
 ```
 
 ```
-CreateHoneyPots 🍯
+HoneyPotsCreator 🍯
   - Esta ferramenta gera honeypots para proteger os arquivos reais de um servidor.
 ```
 ```
@@ -29,5 +29,5 @@ PyEncrypt 🐍
 ```
 ```
 PyHash #️
-  * Script para gerar hashs de arquivos de forma simplificada.
+  - Script para gerar hashs de arquivos de forma simplificada.
 ```

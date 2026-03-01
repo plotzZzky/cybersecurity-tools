@@ -4,7 +4,7 @@ import shutil
 import os
 
 
-class CreateHoneyPot:
+class HoneyPotCreator:
     """
         Esta ferramenta gera honeypots para proteger os arquivos reais de um servidor
         * HoneysPots são arquivos falsos colocados nos locais onde os arquivos originais deveriam estar para confundir
@@ -69,7 +69,7 @@ class CreateHoneyPot:
          return data
 
 
-app = CreateHoneyPot()
+app = HoneyPotCreator()
 
 if __name__ == "__main__":
     app.copy_real_files_to_honeypot_path()

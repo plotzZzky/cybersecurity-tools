@@ -1,13 +1,13 @@
-from datetime import datetime, timezone
+from hash import PyHash
 import hashlib
-import re
 
 
-class PyHash:
+class PyHashMenu(PyHash):
     def __init__(self):
         super().__init__()
         print(f"{'_' * 40} PyHash {'_' * 40}")
 
+    # Create a hash file
     def create_hash_file_md5sum(self, filename: str):
         self.generic_create_hash_file(hashlib.md5(), filename)
 
@@ -23,6 +23,7 @@ class PyHash:
     def create_hash_file_sha3_256sum(self, filename: str):
         self.generic_create_hash_file(hashlib.sha3_256(), filename)
 
+    # Return and print file
     def return_hash_md5sum(self, filename: str):
         self.generic_return_hash(hashlib.md5(), filename)
 
@@ -38,76 +39,47 @@ class PyHash:
     def return_hash_sha3_256sum(self, filename: str):
         self.generic_return_hash(hashlib.sha3_256(), filename)
 
-    # ______________________ Basic functions _________________________
+    # Compare file with hash
+    def compare_file_hash_md5sum(self, filename, user_hash):
+        self.generic_compare_file_hash(hashlib.md5(), filename, user_hash)
 
-    def generic_create_hash_file(self, algorithm, filename: str):
-        clean_name: str = self.return_clean_name(filename)
-        timestamp = self.create_timestamp()
-        result_hash = self.generic_return_hash(algorithm, filename)
-        hash_file_name: str = f"{algorithm.name}_{clean_name}_{timestamp}.txt"
-        self.create_hash_file(hash_file_name, filename, timestamp, result_hash)
+    def compare_file_hash_sha1sum(self, filename, user_hash):
+        self.generic_compare_file_hash(hashlib.sha1(), filename, user_hash)
 
-    @staticmethod
-    def return_clean_name(raw_name: str) -> str:
-        """ Retorna o nome sem extensão e chars especiais """
-        no_ext: str = raw_name.split(".")[0]
-        clean_name: str = re.sub(r'[^A-Za-z0-9]', '_', no_ext)
-        return clean_name
+    def compare_file_hash_sha256sum(self, filename, user_hash):
+        self.generic_compare_file_hash(hashlib.sha256(), filename, user_hash)
 
-    @staticmethod
-    def create_timestamp() -> str:
-        """ Cria e retorna o timestamp """
-        now: datetime = datetime.now(timezone.utc)
-        timestamp: str = now.strftime("%Y%m%dT%H%M%S.%f") + "Z"
-        return timestamp
+    def compare_file_hash_sha512sum(self, filename, user_hash):
+        self.generic_compare_file_hash(hashlib.sha512(), filename, user_hash)
 
-    def generic_return_hash(self, algorithm, filename: str) -> bytes:
-        """ Retorna a hash criada """
-        resul_hash: bytes = self.create_hash(algorithm, filename)
-        print(
-            f"filename={filename}\n"
-            f"{algorithm.name}_hash={resul_hash}\n"
-        )
-        return resul_hash
+    def compare_file_hash_sha3_256sum(self, filename, user_hash):
+        self.generic_compare_file_hash(hashlib.sha3_256(), filename, user_hash)
+
+    # Compare hashes files
+    def compare_hashes_files_md5sum(self, filename1, filename2):
+        self.generic_compare_hashes(hashlib.md5(), filename1, filename2)
+
+    def compare_hashes_files_sha1sum(self, filename1, filename2):
+        self.generic_compare_hashes(hashlib.sha1(), filename1, filename2)
+
+    def compare_hashes_files_sha256sum(self, filename1, filename2):
+        self.generic_compare_hashes(hashlib.sha256(), filename1, filename2)
+
+    def compare_hashes_files_sha512sum(self, filename1, filename2):
+        self.generic_compare_hashes(hashlib.sha512(), filename1, filename2)
+
+    def compare_hashes_files_sha3_256sum(self, filename1, filename2):
+        self.generic_compare_hashes(hashlib.sha3_256(), filename1, filename2)
 
 
-    @staticmethod
-    def create_hash(algorithm, filename: str) -> bytes:
-        """
-            Cria a hash do arquivo
-
-            Args:
-                algorithm (func) - Algoritimo usado para criar a hash (md5, sha1, sha256...)
-                filename (str) - Nome do arquivo para se gerar a hash
-
-            Return:
-                Retorna a hash gerada fo arquivo (filename)
-        """
-        with open(filename, "rb") as file:
-            data: bytes = file.read()
-            algorithm.update(data)
-
-        return algorithm.hexdigest()
-
-    @staticmethod
-    def create_hash_file(hash_file_name: str, filename: str, timestamp: str, result_hash: bytes):
-        """
-            Cria o txt com os dados do arquivo
-
-            Args:
-                hash_file_name (str) - Nome do arquivo com a hash
-                filename (str) - Nome do arquivo que foi heshado
-                timestamp (str) - Momento que foi feito a hash
-                result_hash (bytes) - Hash do arquivo
-        """
-        with open(hash_file_name, "w") as hash_file:
-            hash_file.write(
-                f"filename={filename}\n"
-                f"timestamp={timestamp}\n"
-                f"hash={result_hash}"
-            )
-
-py_hash = PyHash()
+py_hash = PyHashMenu()
 
 if __name__ == "__main__":
-    py_hash.create_hash_file_md5sum("file.txt")
+    py_hash.compare_file_hash_sha256sum(
+        "PyHash/file.txt",
+        "e3b0c44298fc1c149afbf4c8996fx92427ae41e4649b934ca495991b7852b855"
+    )
+    py_hash.compare_hashes_files_sha256sum(
+        "PyHash/file.txt",
+        "PyHash/file2.txt"
+    )

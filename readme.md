@@ -1,12 +1,17 @@
-## 🛡️ CyberSecurity
+## 🛡️ CyberSecurity Tools
 ### Scripts usados em rotinas relacionadas a cybersegurança em geral.
 
+---
+### Objetivo 📋
+Desenvolver e disponibilizar **pequenas soluções para rotinas e atividades de cibersegurança**, implementadas em Python ou Bash.  
+Esses projetos são simples e não justificam um repositório separado, mas podem ser úteis como ferramentas independentes.  
+
 --- 
+### Scripts ⚒️
 ``` 
  CheckPwd ✔️
   - Verifica se sua senha consta no rockyou.txt (lista de senhas vazadas na web).
 ```
-
 ```
 HoneyPotsCreator 🍯
   - Esta ferramenta gera honeypots para proteger os arquivos reais de um servidor.

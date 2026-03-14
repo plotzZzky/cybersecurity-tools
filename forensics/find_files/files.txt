@@ -1,0 +1,9 @@
+*password*
+*pwd*
+*accounts*
+*senhas*
+*dados*
+*contas*
+*.kbdx
+*.sh
+*.json

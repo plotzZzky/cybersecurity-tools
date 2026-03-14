@@ -39,6 +39,11 @@ Ipinspector 🕵️
 ```
 
 ```
+Find files 🔍
+  - Scriptbash para buscar arquivos no sistema pelo nome ou extensão através de uma lista em txt
+```
+
+```
 Linux gather 🕵️
   - Scriptbash (lista de comandos) que retorna informações sobre um sistema linux.
 ```
